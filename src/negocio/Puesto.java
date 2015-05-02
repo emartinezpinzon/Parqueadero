@@ -13,6 +13,10 @@ public class Puesto {
         this.numero = numero;
         this.estado = "Libre";
     }
+    
+    public void asignarPuesto(Carro carro){
+        this.carro = carro;
+    }
 
     public int getNumero() {
         return numero;

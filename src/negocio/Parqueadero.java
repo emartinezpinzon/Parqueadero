@@ -16,6 +16,9 @@ public class Parqueadero {
     public Parqueadero(){
         this.tarifaHora = 1000;
         this.tarifaFraccion = 500;
+        this.Puesto = new ArrayList<Puesto>();
+        this.Carro = new ArrayList<Carro>();
+        this.crearPuestos();
     }
     
     private void crearPuestos(){
