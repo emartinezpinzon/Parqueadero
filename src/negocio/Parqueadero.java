@@ -50,16 +50,6 @@ public class Parqueadero {
         return carro;
     }
     
-    public String PuestosVacios(){
-        String num = "";
-        
-        for(Puesto p: Puesto)
-            if(p.getEstado().equalsIgnoreCase("Libre"))
-                num += p.getNumero()+"-";
-        
-        return num;
-    }
-    
     public int puestoVacio(){
         for(Puesto p: Puesto)
             if(p.getEstado().equalsIgnoreCase("Libre"))
@@ -76,15 +66,6 @@ public class Parqueadero {
                 carros += this.Puesto.get(i).getCarro().getPlaca()+"-";
         
         return carros;
-    }
-    
-    public String concatenarEstadosPuestos(){
-        String estados = "";
-        
-        for(Puesto p: Puesto)
-            estados += p.getEstado()+"-";
-        
-        return estados;
     }
     
     public String concatenarInfoCarros(){
