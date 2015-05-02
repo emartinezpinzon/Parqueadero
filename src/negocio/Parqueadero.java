@@ -32,7 +32,7 @@ public class Parqueadero {
             Carro Carro = new Carro(placa, hora, minuto);
             this.Puesto.get(this.puestoVacio()).asignarPuesto(Carro);
             this.Puesto.get(this.puestoVacio()).setEstado(false);
-            return "Carro parqueado en el puesto "+this.puestoVacio();
+            return "Carro parqueado con exito";
         }
             
         return men;
