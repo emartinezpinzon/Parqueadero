@@ -18,9 +18,6 @@ public class FormParqueadero extends javax.swing.JFrame {
         this.parqueadero.setTarifaFraccion(Integer.parseInt(this.txtTarifaFraccion.getText()));
         this.cmdCambiarTarifa.setEnabled(false);
         this.txtAreaInfo.setText("Parqueadero");
-        System.out.println("Primer puesto vacio que encuentra el sistema "+this.parqueadero.puestoVacio());
-        System.out.println("Cadena de los puestos vacios existentes "+this.parqueadero.PuestosVacios());
-        System.out.println("Estados de los puestos "+this.parqueadero.concatenarEstadosPuestos()+"\n");
     }
 
     @SuppressWarnings("unchecked")
@@ -266,9 +263,6 @@ public class FormParqueadero extends javax.swing.JFrame {
         this.txtAreaInfo.setText("Parqueadero\n\n"+this.parqueadero.concatenarInfoCarros());
         this.txtPlaca.setText("");
         this.llenarComboCarro();
-        System.out.println("Primer puesto vacio que encuentra el sistema "+this.parqueadero.puestoVacio());
-        System.out.println("Cadena de los puestos vacios existentes "+this.parqueadero.PuestosVacios());
-        System.out.println("Estados de los puestos "+this.parqueadero.concatenarEstadosPuestos()+"\n");
     }//GEN-LAST:event_cmdParquearActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
