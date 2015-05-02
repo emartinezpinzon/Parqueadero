@@ -17,6 +17,7 @@ public class FormParqueadero extends javax.swing.JFrame {
         this.parqueadero.setTarifaHora(Integer.parseInt(this.txtTarifaHora.getText()));
         this.parqueadero.setTarifaFraccion(Integer.parseInt(this.txtTarifaFraccion.getText()));
         this.cmdCambiarTarifa.setEnabled(false);
+        this.txtAreaInfo.setText("Parqueadero");
         System.out.println("Primer puesto vacio que encuentra el sistema "+this.parqueadero.puestoVacio());
         System.out.println("Cadena de los puestos vacios existentes "+this.parqueadero.PuestosVacios());
         System.out.println("Estados de los puestos "+this.parqueadero.concatenarEstadosPuestos()+"\n");
@@ -78,6 +79,10 @@ public class FormParqueadero extends javax.swing.JFrame {
         jLabel3.setText("Auto: ");
 
         jLabel6.setText("Hora y minuto de la salida");
+
+        cmbHoraSalida.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+
+        cmbMinutoSalida.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
 
         cmdRetirarCarro.setText("Retirar");
 
@@ -258,6 +263,7 @@ public class FormParqueadero extends javax.swing.JFrame {
         
         String mensaje = this.parqueadero.parquearCarro(placa, hora, minuto);
         Ventana.imp(mensaje, "Sistema");
+        this.txtAreaInfo.setText("Parqueadero\n\n"+this.parqueadero.concatenarInfoCarros());
         this.txtPlaca.setText("");
         this.llenarComboCarro();
         System.out.println("Primer puesto vacio que encuentra el sistema "+this.parqueadero.puestoVacio());
@@ -276,7 +282,7 @@ public class FormParqueadero extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     public void llenarComboCarro(){
-        String []carro = this.parqueadero.concatenarCarros().split("-");
+        String []carro = this.parqueadero.concatenarPlacasCarros().split("-");
         this.cmbAutoARetirar.removeAllItems();
         for(String c: carro)
             this.cmbAutoARetirar.addItem(c);

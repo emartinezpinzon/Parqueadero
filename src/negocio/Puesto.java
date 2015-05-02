@@ -43,8 +43,9 @@ public class Puesto {
     }
     
     public String toString(){
-        return "Numero: "+this.getNumero()
+        return "Puesto: "+this.getNumero()
             +"\nEstado: "+this.getEstado()
+            +"\nPlaca del carro: "+this.getCarro().getPlaca()
             +"\nHora: "+this.getCarro().getHora()+":"+this.getCarro().getMinuto();
     }
 }

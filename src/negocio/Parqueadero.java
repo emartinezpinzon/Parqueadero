@@ -68,7 +68,7 @@ public class Parqueadero {
         return -1;
     }
 
-    public String concatenarCarros(){
+    public String concatenarPlacasCarros(){
         String carros = "";
         
         for(int i=0; i<this.Puesto.size();i++)
@@ -85,6 +85,16 @@ public class Parqueadero {
             estados += p.getEstado()+"-";
         
         return estados;
+    }
+    
+    public String concatenarInfoCarros(){
+        String info = "";
+        
+        for(Puesto p: Puesto)
+            if(p.getEstado()==false)
+                info += p.toString()+"\n\n";
+        
+        return info;
     }
     
     //------------------------Getter's y Setter's-----------------------------//
