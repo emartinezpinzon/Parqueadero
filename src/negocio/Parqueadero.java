@@ -7,13 +7,11 @@ package negocio;
 import java.util.ArrayList;
 
 public class Parqueadero {
-    
     ArrayList<Puesto> Puesto;
     ArrayList<Carro> Carro;
     private int tarifaHora;
     private int tarifaFraccion;
     private int totalRecaudado;
-    
     
     public Parqueadero(){
         this.tarifaHora = 1000;

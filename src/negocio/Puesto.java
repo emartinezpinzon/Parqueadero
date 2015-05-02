@@ -5,7 +5,6 @@ package negocio;
  */
 
 public class Puesto {
-    
     private int numero;
     private String estado;
     private Carro carro;
@@ -40,6 +39,8 @@ public class Puesto {
     }
     
     public String toString(){
-        return "";
+        return "Numero: "+this.getNumero()
+            +"\nEstado: "+this.getEstado()
+            +"\nHora: "+this.getCarro().getHora()+":"+this.getCarro().getMinuto();
     }
 }

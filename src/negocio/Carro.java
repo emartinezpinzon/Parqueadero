@@ -5,7 +5,6 @@ package negocio;
  */
 
 public class Carro {
- 
     private String placa;
     private String hora;
     private String minuto;
@@ -15,7 +14,7 @@ public class Carro {
         this.hora = hora;
         this.minuto = minuto;
     }
-
+    
     public String getPlaca() {
         return placa;
     }
