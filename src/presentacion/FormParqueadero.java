@@ -16,8 +16,9 @@ public class FormParqueadero extends javax.swing.JFrame {
         this.parqueadero = new Parqueadero();
         this.parqueadero.setTarifaHora(Integer.parseInt(this.txtTarifaHora.getText()));
         this.parqueadero.setTarifaFraccion(Integer.parseInt(this.txtTarifaFraccion.getText()));
-        System.out.println(this.parqueadero.puestoVacio());
-        System.out.println(this.parqueadero.PuestosVacios());
+        System.out.println("Primer puesto vacio que encuentra el sistema "+this.parqueadero.puestoVacio());
+        System.out.println("Cadena de los puestos vacios existentes "+this.parqueadero.PuestosVacios());
+        System.out.println("Estados de los puestos "+this.parqueadero.concatenarEstadosPuestos()+"\n");
     }
 
     @SuppressWarnings("unchecked")
@@ -245,8 +246,9 @@ public class FormParqueadero extends javax.swing.JFrame {
         Ventana.imp(mensaje, "Sistema");
         this.txtPlaca.setText("");
         this.llenarComboCarro();
-        System.out.println(this.parqueadero.puestoVacio());
-        System.out.println(this.parqueadero.PuestosVacios());
+        System.out.println("Primer puesto vacio que encuentra el sistema "+this.parqueadero.puestoVacio());
+        System.out.println("Cadena de los puestos vacios existentes "+this.parqueadero.PuestosVacios());
+        System.out.println("Estados de los puestos "+this.parqueadero.concatenarEstadosPuestos()+"\n");
     }//GEN-LAST:event_cmdParquearActionPerformed
 
     public void llenarComboCarro(){

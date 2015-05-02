@@ -28,7 +28,7 @@ public class Parqueadero {
         if(this.buscarCarro(placa) != null)
             return "El carro ya esta parqueado en un puesto";
         
-        if(this.puestoVacio()!=0){
+        if(this.puestoVacio()!=-1){
             Carro Carro = new Carro(placa, hora, minuto);
             this.Puesto.get(this.puestoVacio()).asignarPuesto(Carro);
             this.Puesto.get(this.puestoVacio()).setEstado(false);
@@ -53,10 +53,6 @@ public class Parqueadero {
     public String PuestosVacios(){
         String num = "";
         
-//        for(int i=0; i<this.Puesto.size(); i++)
-//            if(this.Puesto.get(i).getEstado()==true)
-//                num += this.Puesto.get(i).getNumero()+"-";
-        
         for(Puesto p: Puesto)
             if(p.getEstado()==true)
                 num += p.getNumero()+"-";
@@ -64,14 +60,12 @@ public class Parqueadero {
         return num;
     }
     
-    public int puestoVacio(){        
-        int puestoVacio = 0;
-        
+    public int puestoVacio(){
         for(Puesto p: Puesto)
             if(p.getEstado()==true)
-                return p.getNumero();
+                return (p.getNumero()-1);
         
-        return puestoVacio;
+        return -1;
     }
 
     public String concatenarCarros(){
@@ -82,6 +76,15 @@ public class Parqueadero {
                 carros += this.Puesto.get(i).getCarro().getPlaca()+"-";
         
         return carros;
+    }
+    
+    public String concatenarEstadosPuestos(){
+        String estados = "";
+        
+        for(Puesto p: Puesto)
+            estados += p.getEstado()+"-";
+        
+        return estados;
     }
     
     //------------------------Getter's y Setter's-----------------------------//
