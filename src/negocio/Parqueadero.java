@@ -31,7 +31,7 @@ public class Parqueadero {
         if(this.puestoVacio()!=-1){
             Carro Carro = new Carro(placa, hora, minuto);
             this.Puesto.get(this.puestoVacio()).asignarPuesto(Carro);
-            this.Puesto.get(this.puestoVacio()).setEstado(false);
+            this.Puesto.get(this.puestoVacio()).setEstado("Ocupado");
             return "Carro parqueado con exito";
         }
             
@@ -43,7 +43,7 @@ public class Parqueadero {
         Carro carro = null;
         
         for(Puesto p: Puesto)
-            if(p.getEstado()==false && 
+            if(p.getEstado().equalsIgnoreCase("Ocupado") && 
                     p.getCarro().getPlaca().equalsIgnoreCase(placa))
                 carro = p.getCarro();
         
@@ -54,7 +54,7 @@ public class Parqueadero {
         String num = "";
         
         for(Puesto p: Puesto)
-            if(p.getEstado()==true)
+            if(p.getEstado().equalsIgnoreCase("Libre"))
                 num += p.getNumero()+"-";
         
         return num;
@@ -62,7 +62,7 @@ public class Parqueadero {
     
     public int puestoVacio(){
         for(Puesto p: Puesto)
-            if(p.getEstado()==true)
+            if(p.getEstado().equalsIgnoreCase("Libre"))
                 return (p.getNumero()-1);
         
         return -1;
@@ -72,7 +72,7 @@ public class Parqueadero {
         String carros = "";
         
         for(int i=0; i<this.Puesto.size();i++)
-            if(this.Puesto.get(i).getEstado()==false)
+            if(this.Puesto.get(i).getEstado().equalsIgnoreCase("Ocupado"))
                 carros += this.Puesto.get(i).getCarro().getPlaca()+"-";
         
         return carros;
@@ -91,7 +91,7 @@ public class Parqueadero {
         String info = "";
         
         for(Puesto p: Puesto)
-            if(p.getEstado()==false)
+            if(p.getEstado().equalsIgnoreCase("Ocupado"))
                 info += p.toString()+"\n\n";
         
         return info;
