@@ -16,6 +16,8 @@ public class FormParqueadero extends javax.swing.JFrame {
         this.parqueadero = new Parqueadero();
         this.parqueadero.setTarifaHora(Integer.parseInt(this.txtTarifaHora.getText()));
         this.parqueadero.setTarifaFraccion(Integer.parseInt(this.txtTarifaFraccion.getText()));
+        System.out.println(this.parqueadero.puestoVacio());
+        System.out.println(this.parqueadero.PuestosVacios());
     }
 
     @SuppressWarnings("unchecked")
@@ -234,10 +236,25 @@ public class FormParqueadero extends javax.swing.JFrame {
         String hora = this.cmbHoraParquear.getSelectedItem().toString();
         String minuto = this.cmbMinutoParquear.getSelectedItem().toString();
         
+        if(placa.isEmpty()){
+            Ventana.imp("Debe ingresar la placa del vehiculo", "Sistema");
+            return;
+        }
+        
         String mensaje = this.parqueadero.parquearCarro(placa, hora, minuto);
         Ventana.imp(mensaje, "Sistema");
+        this.txtPlaca.setText("");
+        this.llenarComboCarro();
+        System.out.println(this.parqueadero.puestoVacio());
     }//GEN-LAST:event_cmdParquearActionPerformed
 
+    public void llenarComboCarro(){
+        String []carro = this.parqueadero.concatenarCarros().split("-");
+        this.cmbAutoARetirar.removeAllItems();
+        for(String c: carro)
+            this.cmbAutoARetirar.addItem(c);
+    }
+    
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

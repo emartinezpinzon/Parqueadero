@@ -6,12 +6,12 @@ package negocio;
 
 public class Puesto {
     private int numero;
-    private String estado;
+    private boolean estado;
     private Carro carro;
     
     public Puesto(int numero){
         this.numero = numero;
-        this.estado = "Libre";
+        this.estado = true;
     }
     
     public void asignarPuesto(Carro carro){
@@ -26,11 +26,11 @@ public class Puesto {
         this.numero = numero;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
