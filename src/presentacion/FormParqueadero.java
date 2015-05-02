@@ -246,6 +246,7 @@ public class FormParqueadero extends javax.swing.JFrame {
         this.txtPlaca.setText("");
         this.llenarComboCarro();
         System.out.println(this.parqueadero.puestoVacio());
+        System.out.println(this.parqueadero.PuestosVacios());
     }//GEN-LAST:event_cmdParquearActionPerformed
 
     public void llenarComboCarro(){

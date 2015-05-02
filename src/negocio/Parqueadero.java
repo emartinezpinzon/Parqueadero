@@ -3,7 +3,6 @@ package negocio;
 /**
  * @author Emanuel Martínez Pinzón
  */
-
 import java.util.ArrayList;
 
 public class Parqueadero {
@@ -53,9 +52,14 @@ public class Parqueadero {
     
     public String PuestosVacios(){
         String num = "";
-        for(int i=0; i<this.Puesto.size(); i++)
-            if(this.Puesto.get(i).getEstado()==true)
-                num += this.Puesto.get(i).getNumero()+"-";
+        
+//        for(int i=0; i<this.Puesto.size(); i++)
+//            if(this.Puesto.get(i).getEstado()==true)
+//                num += this.Puesto.get(i).getNumero()+"-";
+        
+        for(Puesto p: Puesto)
+            if(p.getEstado()==true)
+                num += p.getNumero()+"-";
         
         return num;
     }
