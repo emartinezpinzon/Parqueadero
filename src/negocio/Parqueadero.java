@@ -38,6 +38,25 @@ public class Parqueadero {
         return men;
     }
     
+    public String retirarCarro(String placa, String hora, String minutos){
+        String mensaje = "Carro retirado con exito";
+        
+//        for(Puesto p:Puesto)
+//            if(p.getCarro().getPlaca().equalsIgnoreCase(placa)){
+//                p.setEstado("Libre");
+//                this.Puesto.remove(p);
+//            }
+        
+        for(int i=0; i<this.Puesto.size(); i++){
+            if(this.Puesto.get(i)!=null && 
+                    this.Puesto.get(i).getCarro().getPlaca().equalsIgnoreCase(placa))
+                this.Puesto.remove(i);
+                this.Puesto.get(i).setEstado("Libre");
+        }                
+        
+        return mensaje;
+    }
+    
     //----------------------REQUERIMIENTOS OPERACIONALES----------------------//
     public Carro buscarCarro(String placa){
         Carro carro = null;
@@ -56,6 +75,11 @@ public class Parqueadero {
                 return (p.getNumero()-1);
         
         return -1;
+    }
+    
+    public int calcularPrecio(String placa, String hora, Carro Carro){
+        int costo = 0;
+        return costo;
     }
 
     public String concatenarPlacasCarros(){
