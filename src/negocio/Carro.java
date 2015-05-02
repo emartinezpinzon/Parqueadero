@@ -9,7 +9,7 @@ public class Carro {
     private String hora;
     private String minuto;
 
-    public Carro(String placa, String hora, String minuto) {
+    public Carro(String placa, String hora, String minuto){
         this.placa = placa;
         this.hora = hora;
         this.minuto = minuto;

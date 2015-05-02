@@ -230,7 +230,12 @@ public class FormParqueadero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdParquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdParquearActionPerformed
+        String placa = this.txtPlaca.getText();
+        String hora = this.cmbHoraParquear.getSelectedItem().toString();
+        String minuto = this.cmbMinutoParquear.getSelectedItem().toString();
         
+        String mensaje = this.parqueadero.parquearCarro(placa, hora, minuto);
+        Ventana.imp(mensaje, "Sistema");
     }//GEN-LAST:event_cmdParquearActionPerformed
 
     public static void main(String args[]) {
