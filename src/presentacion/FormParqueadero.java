@@ -54,6 +54,7 @@ public class FormParqueadero extends javax.swing.JFrame {
         setTitle("Parqueadero");
         setResizable(false);
 
+        txtAreaInfo.setEditable(false);
         txtAreaInfo.setColumns(20);
         txtAreaInfo.setRows(5);
         jScrollPane1.setViewportView(txtAreaInfo);
@@ -116,6 +117,11 @@ public class FormParqueadero extends javax.swing.JFrame {
         txtTarifaFraccion.setText("500");
 
         cmdCambiarTarifa.setText("Establecer");
+        cmdCambiarTarifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCambiarTarifaActionPerformed(evt);
+            }
+        });
 
         jToggleButton1.setText("Off");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -313,6 +319,27 @@ public class FormParqueadero extends javax.swing.JFrame {
     private void cmdDineroRecaudadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDineroRecaudadoActionPerformed
         this.txtAreaInfo.setText("Total recaudado: "+this.parqueadero.getTotalRecaudado());
     }//GEN-LAST:event_cmdDineroRecaudadoActionPerformed
+
+    private void cmdCambiarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCambiarTarifaActionPerformed
+        String tarifaHora = this.txtTarifaHora.getText();
+        String tarifaFraccion = this.txtTarifaFraccion.getText();
+        
+        int hora = 0;
+        int fraccion = 0;
+        
+        try{
+            hora = Integer.parseInt(tarifaHora);
+            fraccion = Integer.parseInt(tarifaFraccion);
+        }catch(NumberFormatException nfe){
+            Ventana.imp("Debe ingresar valores numericos", "Sistema");
+            return;
+        }
+        
+        this.parqueadero.setTarifaHora(hora);
+        this.parqueadero.setTarifaFraccion(fraccion);
+        
+        Ventana.imp("Ha actualizado el precio de la tarifa de cobro", "Sistema");
+    }//GEN-LAST:event_cmdCambiarTarifaActionPerformed
 
     public void llenarComboCarro(){
         String []carro = this.parqueadero.concatenarPlacasCarros().split("~");

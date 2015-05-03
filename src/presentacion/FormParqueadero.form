@@ -57,6 +57,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="txtAreaInfo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
@@ -486,6 +487,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Establecer"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdCambiarTarifaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jToggleButton1">
           <Properties>
