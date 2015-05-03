@@ -91,6 +91,11 @@ public class FormParqueadero extends javax.swing.JFrame {
         cmdDineroRecaudado.setText("Total de dinero recaudado");
 
         cmdPuestosOcupados.setText("Puestos ocupados");
+        cmdPuestosOcupados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdPuestosOcupadosActionPerformed(evt);
+            }
+        });
 
         cmdPuestosLibres.setText("Puestos libres");
 
@@ -295,6 +300,10 @@ public class FormParqueadero extends javax.swing.JFrame {
         this.llenarComboCarro();
         this.txtAreaInfo.setText("Parqueadero\n\n"+this.parqueadero.concatenarInfoCarros());
     }//GEN-LAST:event_cmdRetirarCarroActionPerformed
+
+    private void cmdPuestosOcupadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPuestosOcupadosActionPerformed
+        this.txtAreaInfo.setText("Parqueadero\n\n"+this.parqueadero.concatenarInfoCarros());
+    }//GEN-LAST:event_cmdPuestosOcupadosActionPerformed
 
     public void llenarComboCarro(){
         String []carro = this.parqueadero.concatenarPlacasCarros().split("~");
