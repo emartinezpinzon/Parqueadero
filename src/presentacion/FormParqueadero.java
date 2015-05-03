@@ -51,7 +51,7 @@ public class FormParqueadero extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Prqueadero");
+        setTitle("Parqueadero");
         setResizable(false);
 
         txtAreaInfo.setColumns(20);
@@ -288,6 +288,7 @@ public class FormParqueadero extends javax.swing.JFrame {
         String mensaje = this.parqueadero.retirarCarro(placa, hora, minuto);
         Ventana.imp(mensaje, "Sistema");
         this.llenarComboCarro();
+        this.txtAreaInfo.setText("Parqueadero\n\n"+this.parqueadero.concatenarInfoCarros());
     }//GEN-LAST:event_cmdRetirarCarroActionPerformed
 
     public void llenarComboCarro(){

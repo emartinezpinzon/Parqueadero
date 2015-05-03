@@ -7,12 +7,14 @@ import java.util.ArrayList;
 
 public class Parqueadero {
     ArrayList<Puesto> Puesto;
+    ArrayList<Carro> Carro;
     private int tarifaHora;
     private int tarifaFraccion;
     private int totalRecaudado;
     
     public Parqueadero(){
         this.Puesto = new ArrayList<Puesto>();
+        this.Carro = new ArrayList<Carro>();
         this.crearPuestos();
     }
     
@@ -39,20 +41,19 @@ public class Parqueadero {
     }
     
     public String retirarCarro(String placa, String hora, String minutos){
-        String mensaje = "Carro retirado con exito";
+        String mensaje = "No se ha podido retirar el carro";
+        int orden = 0;
         
-//        for(Puesto p:Puesto)
-//            if(p.getCarro().getPlaca().equalsIgnoreCase(placa)){
-//                p.setEstado("Libre");
-//                this.Puesto.remove(p);
-//            }
-        
-        for(int i=0; i<this.Puesto.size(); i++){
-            if(this.Puesto.get(i)!=null && 
-                    this.Puesto.get(i).getCarro().getPlaca().equalsIgnoreCase(placa))
-                this.Puesto.remove(i);
-                this.Puesto.get(i).setEstado("Libre");
-        }                
+        if(orden<4){
+            boolean plak = this.Puesto.get(orden).getCarro().getPlaca().equalsIgnoreCase(placa);
+            System.out.println("Plak "+plak+" orden "+orden);
+            if(plak){
+                this.Puesto.get(orden).setCarro(null);
+                this.Puesto.get(orden).setEstado("Libre");
+                mensaje = "Carro retirado con exito";
+            }
+            orden++;
+        }
         
         return mensaje;
     }
