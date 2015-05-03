@@ -42,6 +42,11 @@ public class Puesto {
         this.carro = carro;
     }
     
+    public String libreString(){
+        return "Puesto: "+this.getNumero()
+            +"\nEstado: "+this.getEstado();
+    }
+    
     public String toString(){
         return "Puesto: "+this.getNumero()
             +"\nEstado: "+this.getEstado()

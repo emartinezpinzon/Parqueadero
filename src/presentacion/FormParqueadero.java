@@ -104,6 +104,11 @@ public class FormParqueadero extends javax.swing.JFrame {
         });
 
         cmdPuestosLibres.setText("Puestos libres");
+        cmdPuestosLibres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdPuestosLibresActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Cambiar tarifa de parqueo");
 
@@ -340,6 +345,10 @@ public class FormParqueadero extends javax.swing.JFrame {
         
         Ventana.imp("Ha actualizado el precio de la tarifa de cobro", "Sistema");
     }//GEN-LAST:event_cmdCambiarTarifaActionPerformed
+
+    private void cmdPuestosLibresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPuestosLibresActionPerformed
+        this.txtAreaInfo.setText("Puestos libres\n\n"+this.parqueadero.InfoPuestosLibres());
+    }//GEN-LAST:event_cmdPuestosLibresActionPerformed
 
     public void llenarComboCarro(){
         String []carro = this.parqueadero.concatenarPlacasCarros().split("~");

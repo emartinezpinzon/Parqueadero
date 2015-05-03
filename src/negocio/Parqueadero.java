@@ -45,16 +45,25 @@ public class Parqueadero {
         
         int precio = this.calcularPrecio(hora, minutos, this.buscarCarro(placa));
         
-        for(int i=0; i<=this.Puesto.size(); i++){
+        for(int i=0; i<=this.Puesto.size(); i++)
             if(this.Puesto.get(i).getCarro()!= null && 
                     this.Puesto.get(i).getCarro().getPlaca().equalsIgnoreCase(placa)){
                 this.Puesto.get(i).setCarro(null);
                 this.Puesto.get(i).setEstado("Libre");
                 return "Se ha retirado correctamente, debe pagar "+precio;
             }
-        }
-        
+                
         return mensaje;
+    }
+    
+    public String InfoPuestosLibres(){
+        String libres = "";
+        
+        for(Puesto p: Puesto)
+            if(p!=null && p.getEstado().equalsIgnoreCase("Libre"))
+                libres += p.libreString()+"\n\n";
+                
+        return libres;
     }
     
     //----------------------REQUERIMIENTOS OPERACIONALES----------------------//
