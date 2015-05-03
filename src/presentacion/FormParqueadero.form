@@ -439,6 +439,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Total de dinero recaudado"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdDineroRecaudadoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cmdPuestosOcupados">
           <Properties>
