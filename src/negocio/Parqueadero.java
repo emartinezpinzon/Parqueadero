@@ -42,17 +42,14 @@ public class Parqueadero {
     
     public String retirarCarro(String placa, String hora, String minutos){
         String mensaje = "No se ha podido retirar el carro";
-        int orden = 0;
         
-        if(orden<4){
-            boolean plak = this.Puesto.get(orden).getCarro().getPlaca().equalsIgnoreCase(placa);
-            System.out.println("Plak "+plak+" orden "+orden);
-            if(plak){
-                this.Puesto.get(orden).setCarro(null);
-                this.Puesto.get(orden).setEstado("Libre");
-                mensaje = "Carro retirado con exito";
+        for(int i=0; i<=this.Puesto.size(); i++){
+            if(this.Puesto.get(i).getCarro()!= null && 
+                    this.Puesto.get(i).getCarro().getPlaca().equalsIgnoreCase(placa)){
+                this.Puesto.get(i).setCarro(null);
+                this.Puesto.get(i).setEstado("Libre");
+                return "Se ha retirado correctamente";
             }
-            orden++;
         }
         
         return mensaje;
@@ -88,7 +85,7 @@ public class Parqueadero {
         
         for(int i=0; i<this.Puesto.size();i++)
             if(this.Puesto.get(i).getEstado().equalsIgnoreCase("Ocupado"))
-                carros += this.Puesto.get(i).getCarro().getPlaca()+"-";
+                carros += this.Puesto.get(i).getCarro().getPlaca()+"~";
         
         return carros;
     }

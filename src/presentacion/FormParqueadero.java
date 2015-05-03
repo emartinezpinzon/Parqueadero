@@ -285,6 +285,11 @@ public class FormParqueadero extends javax.swing.JFrame {
         String hora = this.cmbHoraSalida.getSelectedItem().toString();
         String minuto = this.cmbMinutoSalida.getSelectedItem().toString();
         
+        if(placa.isEmpty()){
+            Ventana.imp("No hay ningún carro parqueado", "Sistema");
+            return;
+        }
+        
         String mensaje = this.parqueadero.retirarCarro(placa, hora, minuto);
         Ventana.imp(mensaje, "Sistema");
         this.llenarComboCarro();
@@ -292,7 +297,7 @@ public class FormParqueadero extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdRetirarCarroActionPerformed
 
     public void llenarComboCarro(){
-        String []carro = this.parqueadero.concatenarPlacasCarros().split("-");
+        String []carro = this.parqueadero.concatenarPlacasCarros().split("~");
         this.cmbAutoARetirar.removeAllItems();
         for(String c: carro)
             this.cmbAutoARetirar.addItem(c);
