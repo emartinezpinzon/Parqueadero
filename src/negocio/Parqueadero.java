@@ -43,7 +43,7 @@ public class Parqueadero {
     public String retirarCarro(String placa, String hora, String minutos){
         String mensaje = "No se ha podido retirar el carro";
         
-        int precio = this.calcularPrecio(hora, minutos, this.buscarCarro(placa));
+        String precio = this.calcularPrecio(hora, minutos, this.buscarCarro(placa));
         
         for(int i=0; i<=this.Puesto.size(); i++){
             if(this.Puesto.get(i).getCarro()!= null && 
@@ -77,13 +77,26 @@ public class Parqueadero {
         return -1;
     }
     
-    public int calcularPrecio(String horaSalida, String minutoSalida, Carro Carro){
-        int costo = 0;
+    public String calcularPrecio(String horaSalida, String minutoSalida, Carro Carro){
+        String costo = "";
         
         int cantHoras = Integer.parseInt(horaSalida)-Integer.parseInt(Carro.getHora());
         int cantMinutos = Integer.parseInt(minutoSalida)-Integer.parseInt(Carro.getMinuto());
         
-        return costo+cantHoras+cantMinutos;
+        int costoHora = cantHoras*this.getTarifaHora();
+        int costoFraccion = 0;
+        
+        if(cantMinutos>0)
+            costoFraccion = this.getTarifaFraccion();
+        else
+            if(cantHoras==0)
+                return "No puede retirar el carro con una hora inferior a la hora de llegada"; 
+        
+        costo = ""+(costoHora+costoFraccion);
+        
+        this.setTotalRecaudado(this.getTotalRecaudado()+costoHora+costoFraccion);
+        
+        return ""+costo;
     }
 
     public String concatenarPlacasCarros(){
